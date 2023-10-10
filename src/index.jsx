@@ -7,16 +7,21 @@ import "./style.css";
 import { First } from "./pages/First/index.jsx";
 import { Second } from "./pages/Second/index.jsx";
 import registerServiceWorker from "../registerServiceWorker.js";
-import { initStore } from "./store.js";
+import { color, initStore } from "./store.js";
 
 registerServiceWorker();
 initStore();
 
 export function App() {
+  const isDark = color.value === "dark";
+  const style = {
+    background: isDark ? "black" : "white",
+    color: isDark ? "white" : "black",
+  };
   return (
     <LocationProvider>
       <Header />
-      <main>
+      <main style={style}>
         <Router>
           <Route path="/" component={First} />
           <Route path="/second" component={Second} />

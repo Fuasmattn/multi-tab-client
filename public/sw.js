@@ -8,7 +8,6 @@ this.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", async (event) => {
-  console.log("self message", event.data);
   const messageSource = event.source;
   const clients = await self.clients.matchAll({ includeUncontrolled: true });
   for (const client of clients) {
