@@ -5,7 +5,7 @@ import { Header } from "./components/Header.jsx";
 import { NotFound } from "./pages/_404.jsx";
 import "./style.css";
 import { First } from "./pages/First/index.jsx";
-import { Second } from "./pages/First copy/index.jsx";
+import { Second } from "./pages/Second/index.jsx";
 
 export function App() {
   return (
