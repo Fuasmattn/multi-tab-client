@@ -7,8 +7,10 @@ import "./style.css";
 import { First } from "./pages/First/index.jsx";
 import { Second } from "./pages/Second/index.jsx";
 import registerServiceWorker from "../registerServiceWorker.js";
+import { initStore } from "./store.js";
 
 registerServiceWorker();
+initStore();
 
 export function App() {
   return (
