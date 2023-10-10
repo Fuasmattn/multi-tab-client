@@ -19,14 +19,11 @@ export function First() {
   const value = count.value;
 
   const increment = async () => {
-    const update = count.value + 1;
-    count.value = update;
-
-    postMessage(update);
+    count.value++;
   };
 
   useEffect(() => {
-    postMessage(count.value);
+    count.subscribe(postMessage);
   }, []);
 
   return (

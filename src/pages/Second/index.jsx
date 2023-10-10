@@ -11,6 +11,7 @@ export function Second() {
     const handler = async (event) => {
       count.value = JSON.parse(event.data);
     };
+
     if (navigator.serviceWorker.ready) {
       navigator.serviceWorker.addEventListener("message", handler);
     }
