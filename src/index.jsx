@@ -6,6 +6,9 @@ import { NotFound } from "./pages/_404.jsx";
 import "./style.css";
 import { First } from "./pages/First/index.jsx";
 import { Second } from "./pages/Second/index.jsx";
+import registerServiceWorker from "../registerServiceWorker.js";
+
+registerServiceWorker();
 
 export function App() {
   return (
