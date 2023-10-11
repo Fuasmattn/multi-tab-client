@@ -1,26 +1,24 @@
+// @ts-nocheck
 import "./style.css";
-import { count, color } from "../../store";
+import { useGetPokemonByNameQuery } from "../../services/pokemon";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../../counterSlice";
 
 export function First() {
-  const value = count.value;
+  const { data, error, isLoading } = useGetPokemonByNameQuery("bulbasaur");
 
-  const increment = () => {
-    count.value++;
-  };
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
-  const onSelectionChange = (event) => {
-    color.value = event.target.value;
+  const inc = () => {
+    dispatch(increment());
   };
 
   return (
     <div>
       <h1>First</h1>
-      <p>Count: {value}</p>
-      <button onClick={increment}>Increment</button>
-      <select name="theme" onChange={(e) => onSelectionChange(e)}>
-        <option value="light">light</option>
-        <option value="dark">dark</option>
-      </select>
+      <p>Count: {count}</p>
+      <button onClick={inc}>Increment</button>
     </div>
   );
 }
